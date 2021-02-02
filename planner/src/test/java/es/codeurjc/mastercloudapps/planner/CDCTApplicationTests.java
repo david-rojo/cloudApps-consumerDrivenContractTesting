@@ -11,8 +11,9 @@ import org.springframework.web.client.RestTemplate;
 import es.codeurjc.mastercloudapps.planner.models.LandscapeResponse;
 
 @SpringBootTest
-@AutoConfigureStubRunner(ids={"drojo2020:toposervice:+:stubs:8080"},
-	stubsMode = StubsMode.LOCAL)
+@AutoConfigureStubRunner(
+		ids={"drojo2020:toposervice:+:stubs:8080"},
+		stubsMode = StubsMode.LOCAL)
 class CDCTApplicationTests {
 	
 	@Test
@@ -20,10 +21,9 @@ class CDCTApplicationTests {
 		RestTemplate restTemplate = new RestTemplate();
 
 		LandscapeResponse landscapeResponse = restTemplate.getForObject(
-				"http://localhost:8080/api/topographicdetails/Madrid",
+				"http://localhost:8080/api/topographicdetails/tokyo",
 				LandscapeResponse.class);
 
-		assertEquals("Madrid", landscapeResponse.getId());
 		assertEquals("Flat", landscapeResponse.getLandscape());
 	}
 

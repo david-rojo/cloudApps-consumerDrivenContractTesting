@@ -1,23 +1,23 @@
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    description "should return the landscape of city"
+  description "should return a landscape"
 
-    request {
-        url "/api/topographicdetails/Madrid"
-        method GET()
-    }
+  request {
+    url "/api/topographicdetails/tokyo"
+    method GET()
+  }
 
-    response {
-        status OK()
-        headers {
-            contentType applicationJson()
-        }
-        body (
-            [
-                id: "Madrid",
-                landscape: "Flat"
-            ]
-        )
+  response {
+    status OK()
+    headers {
+      contentType applicationJson()
     }
+    body (
+     [
+       id: "Tokyo",
+       landscape: "Flat"
+     ]
+    )
+  }
 }
